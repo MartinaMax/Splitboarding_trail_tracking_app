@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://localhost:4000/api/
     description: Localhost development server
-  - url: https://splitboarding-trail-treking-app.onrender.com
+  - url: https://splitboarding-trail-treking-app.onrender.com/api/
     description: Remote deployment on render.com
 
 tags:
