@@ -29,7 +29,7 @@ components:
           type: string
         createdBy:
           type: string
-        name:
+        trailName:
           type: string
         description:
           type: string
