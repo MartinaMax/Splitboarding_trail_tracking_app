@@ -35,7 +35,11 @@ mongoose.connection.once("open", () => console.log("Connected succesfully to Mon
 
 
 
-// CRUD 
+// CRUD routes
+app.get("/api/welcome", (req, res) => {
+    res.status(200).send({message: "Welcome to the Splitboarding trail treking"});
+})
+
 app.use("/api/trail", trailRoutes);
 app.use("/api/user", authRoutes);
 
