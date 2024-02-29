@@ -3,14 +3,6 @@ const trail = require("../models/trail");
 const user = require("../models/trail");
 const {tokenVerification} = require("../validation");
 
-// GET - Fetch all the treks from the database
-router.get("/", ( req, res) => {
-    
-    trail.find()
-    .then(data => {res.send(data); })
-    .catch(err => {res.status(500).send(JSON.stringify(err)); })
-});
-
 
 // GET - Fetch all trails based on who it was created by
 router.get("/:createdBy", tokenVerification, (req, res) => {
