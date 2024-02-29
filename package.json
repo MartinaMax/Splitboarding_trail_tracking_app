@@ -1,5 +1,5 @@
 {
-  "name": "splitboarding_trail_treking_app",
+  "name": "splitboarding_trail_tracking_app",
   "version": "1.0.0",
   "description": "MongoDB-ExpressJS-NodeJS REST API",
   "main": "server.js",
