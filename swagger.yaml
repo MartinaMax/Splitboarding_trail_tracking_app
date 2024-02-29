@@ -55,8 +55,6 @@ components:
           type: string
         gear:
           type: sting
-        date:
-          type: string
 
 paths:
 
