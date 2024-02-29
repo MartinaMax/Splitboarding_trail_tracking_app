@@ -53,8 +53,6 @@ components:
           type: string
         password:
           type: string
-        gear:
-          type: sting
 
 paths:
 
