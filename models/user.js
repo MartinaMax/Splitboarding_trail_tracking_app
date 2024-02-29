@@ -41,10 +41,6 @@ let userSchema = new Schema (
             min: 8,
             max: 255
         },
-    // Gear
-        gear: {
-            type: String,
-        },
     // Date
         date: {
             type: Date,
