@@ -113,28 +113,6 @@ paths:
                   data:
                     type: string
 
-
-  /trail:
-    post:
-      summary: Create a new trail
-      description: Create a new trail
-      security:
-        - ApiKeyAuth: []      
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/trail"
-
-      responses:
-        201:
-          description: Trail created succesfully
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/trail"
-
   /trail/{createdBy}:
     get:
       tags:
@@ -159,6 +137,27 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/trail"
+
+   /trail:
+    post:
+      summary: Create a new trail
+      description: Create a new trail
+      security:
+        - ApiKeyAuth: []      
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/trail"
+              
+      responses:
+        201:
+          description: Trail created succesfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/trail"
   
   /trail/{id}:
     put:
