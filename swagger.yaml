@@ -16,9 +16,9 @@ tags:
 
 components:
   securitySchemes:
-    ApiKeyAuth:        # arbitrary name for the security scheme
+    ApiKeyAuth:        
       type: apiKey
-      in: header       # can be "header", "query" or "cookie"
+      in: header       
       name: auth-token
 
   schemas:
@@ -114,52 +114,7 @@ paths:
                     type: string
 
 
-  # /user/refresh:
-  #   post:
-  #     summary: Refresh the token when expired
-  #     description: When the access token is expired, the front-end can run this route to refresh and get a new access token (auth-token)
-  #     requestBody:
-  #       required: true
-  #       content:
-  #         application/json:
-  #           schema:
-  #             type: object
-  #             properties:
-  #               email:
-  #                 type: string
-  #               refreshToken:
-  #                 type: string
-      
-      # responses:
-      #   200:
-      #     description: Access token refreshed successfully
-      #     content:
-      #       application/json:
-      #         schema:
-      #           type: object
-      #           properties:
-      #             success:
-      #               type: boolean
-      #             accessToken:
-      #               type: string
-
-
   /trail:
-    get:
-      tags:
-      - Get Route
-      summary: Retrieves a list of trails
-      description: Retrieves a list of trails as JSON objects.
-      responses:
-        200:
-          description: A list of product JSON objects in an array.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/trail"
-    
     post:
       summary: Create a new trail
       description: Create a new trail
@@ -206,28 +161,6 @@ paths:
                   $ref: "#/components/schemas/trail"
   
   /trail/{id}:
-    # get:
-    #   tags:
-    #   - Get Route
-    #   summary: Specific trail
-    #   description: Retrieves a specific trail based on its ID.
-    #   parameters:
-    #     - in: path
-    #       name: id
-    #       required: true
-    #       description: MongoDB id
-    #       schema:
-    #         type: string
-    #   responses:
-    #     200:
-    #       description: A trail in the format of a JSON object.
-    #       content:
-    #         application/json:
-    #           schema:
-    #             type: array
-    #             items:
-    #               $ref: "#/components/schemas/trail"
-   
     put:
       summary: Updates a specific trail
       description: Updates a specific trail based on its ID
