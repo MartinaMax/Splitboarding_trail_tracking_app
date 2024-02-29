@@ -29,9 +29,6 @@ const registerValidation = (data) => {
                         .min(8)
                         .max(255)
                         .required(),
-            
-            gear: Joi.string(),
-
         });
     
     return schema.validate(data);
