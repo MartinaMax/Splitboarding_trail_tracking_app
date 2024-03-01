@@ -10,8 +10,14 @@ servers:
     description: Remote deployment on render.com
 
 tags:
-  - name: Get Routes
-    description: Routes that get products
+  - name: GET Route
+
+  - name: POST Routes
+
+  - name: PUT Routes
+
+  - name: DELETE Routes
+  
 
 
 components:
@@ -58,6 +64,8 @@ paths:
 
   /user/register:
     post:
+      tags:
+      - POST Routes
       summary: Registration of a new user
       description: Registration of a new user in the database
       requestBody:
@@ -82,6 +90,8 @@ paths:
 
   /user/login:
     post:
+    tags:
+      - POST Routes
       summary: Login of a user
       description: Login of a user in order to get JWT token (auth-token)
       requestBody:
@@ -111,6 +121,8 @@ paths:
 
   /trail:
     post:
+      tags:
+      - POST Routes
       summary: Create a new trail
       description: Create a new trail
       security:
@@ -133,7 +145,7 @@ paths:
   /trail/{createdBy}:
     get:
       tags:
-      - Get Route
+      - GET Route
       summary: Trails created by user
       description: Retrieves trails based on the user it was created by.
       security:
@@ -158,6 +170,8 @@ paths:
   
   /trail/{id}:
     put:
+      tags:
+      - PUT Routes
       summary: Updates a specific trail
       description: Updates a specific trail based on its ID
       security:
@@ -185,6 +199,8 @@ paths:
                 $ref: "#/components/schemas/trail"
 
     delete:
+      tags:
+      - DELETE Routes
       summary: Deletes a specific trail
       description: Deletes a specific trail based on its ID
       security:
