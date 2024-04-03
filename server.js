@@ -21,7 +21,7 @@ require("dotenv-flow").config();
 // Parse request of content type JSON
 app.use(bodyParser.json());
 
-
+mongoose.set('strictQuery', false);
 mongoose.connect 
 (
     process.env.DBHOST,
