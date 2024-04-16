@@ -5,12 +5,12 @@ const {tokenVerification} = require("../validation");
 
 
 // GET - Fetch all trails based on who it was created by
-router.get("/:createdBy", tokenVerification, (req, res) => {
+router.get("/:createdBy", tokenVerification,  (req, res) => {
 
     
-    trail.find({createdBy: req.params.createdBy})
-    .then(data => {res.send(data); })
-    .catch(err => {res.status(500).send(JSON.stringify(err)); })
+    trail.find()
+    .then(data => {res.send(data);})
+    .catch(err => {res.status(500).send(JSON.stringify(err));})
 
 });
 
@@ -21,8 +21,8 @@ router.post("/", tokenVerification, (req, res) => {
     data = req.body;
 
     trail.insertMany(data)
-    .then(data => {res.send(data); })
-    .catch(err => {res.status(500).send(JSON.stringify(err)); })
+    .then(data => {res.send(data);})
+    .catch(err => {res.status(500).send(JSON.stringify(err));})
 
     
 });
