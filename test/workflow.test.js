@@ -8,7 +8,7 @@ const server = require('../server');
 chai.use(chaiHttp);
 
 describe('User and trail workflow tests', () => {
-    it('should register & login a user, create trail and check if it is in the database', (done) => {
+    it('should register & login a user, create trail, check if it exists and delete it', (done) => {
 
     // 1. Register a new user
     let user = {
@@ -83,7 +83,19 @@ describe('User and trail workflow tests', () => {
                                 expect(res.body).to.be.a('array');
                                 expect(res.body.length).to.be.equal(1);
                      
-                            done();
+
+                            // 5. Delete product
+                            chai.request(server)
+                                .delete('/api/trail/' + savedTrail._id)
+                                .set({ "auth-token": token })
+                                .end((err, res) => {
+
+                                 // Asserts
+                                 expect(res.status).to.be.equal(200);
+                                const actualVal = res.body.message;
+                                expect(actualVal).to.be.equal('The trail was deleted.');
+                                done();
+                            });
                         });
                     });       
                 });     
