@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy: 
+      max-parallel: 1
       matrix:
-        node-version: [14.x]
+        node-version: [18.x, 20.x]
 
     steps: 
       - name: Checkout
@@ -29,6 +30,7 @@ jobs:
       - name: NPM install, bulid and test
         run: |
           npm install
+          npm run
           npm test
         env:
           DBHOST: ${{ secrets.DBHOST }}
