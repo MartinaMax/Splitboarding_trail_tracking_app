@@ -9,7 +9,7 @@ jobs:
   test:
 
     name: Test
-      run-on: ubuntu-latest
+      runs-on: ubuntu-latest
 
       strategy: 
         matrix:
