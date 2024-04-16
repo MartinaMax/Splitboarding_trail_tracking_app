@@ -28,7 +28,7 @@ jobs:
 
         - name: NPM install, bulid and test
           run: |
-            npm i
+            npm install
             npm test
           env:
             DBHOST: ${{ secret.DBHOST }}
