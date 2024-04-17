@@ -48,5 +48,3 @@ jobs:
         with:
           service-id: ${{ secrets.SERVICE_ID }}
           api-key: ${{ secrets.RENDER_API_KEY }}
-        
-        # Comment to test the test again
