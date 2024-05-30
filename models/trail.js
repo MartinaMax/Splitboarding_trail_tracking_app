@@ -11,7 +11,7 @@ let trailSchema = new Schema (
             type: Schema.Types.ObjectId, 
             ref: 'user', 
             required: true },
-    // Name of the trek
+    // Trail name
         trailName: { 
             type: String,
             required: true,

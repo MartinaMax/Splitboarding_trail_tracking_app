@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const { registerValidation, loginValidation } = require('../validation');
 
-// Registration of a user
+// POST - Registration of a new user
 router.post("/register", async (req, res) => {
 
     const { error } = registerValidation(req.body);
@@ -17,7 +17,7 @@ router.post("/register", async (req, res) => {
     const emailRegistered = await user.findOne({email: req.body.email });
     
     if (emailRegistered) {
-        return res.status(400).json({ error: "Email alredy registerd"});
+        return res.status(400).json({ error: "Email already registered"});
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -41,7 +41,7 @@ router.post("/register", async (req, res) => {
 });
 
 
-// User login
+//POST - User login
 router.post("/login", async (req, res) => {
     
     const { error } = loginValidation(req.body);
@@ -61,6 +61,7 @@ router.post("/login", async (req, res) => {
         return res.status(400).json({ error: "Wrong password. Try again."});
     }
 
+    // Generating unique token
     const token = jwt.sign (
         {
             name: users.name,

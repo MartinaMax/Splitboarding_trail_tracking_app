@@ -6,35 +6,35 @@ const Schema = mongoose.Schema;
 let userSchema = new Schema (
 
     {
-    // First name requirements
+    // First name
         firstName: { 
             type: String,
             required: true,
             min: 2,
             max: 255
         },
-    // First name requirements
+    // Last name 
         lastName: {
             type: String,
             required: true,
             min: 2,
             max: 255
         },
-    // Username requirements
+    // Username
         username: {
             type: String,
             required: true,
             min: 2,
             max: 155
         },
-    // Email requirements
+    // Email
         email: {
             type: String,
             required: true,
             min: 5,
             max: 255
         },
-    // Password requirements
+    // Password
         password: {
             type: String,
             required: true,
