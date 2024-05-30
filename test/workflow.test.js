@@ -90,12 +90,11 @@ describe('User and trail workflow tests', () => {
                                 .set({ "auth-token": token })
                                 .end((err, res) => {
 
-                                 // Asserts
-                                 expect(res.status).to.be.equal(200);
-                                const actualVal = res.body.message;
-                                expect(actualVal).to.be.equal('The trail was deleted.');
-                                done();
-                            });
+                                    expect(res.status).to.be.equal(200);
+                                    const actualVal = res.body.message;
+                                    expect(actualVal).to.be.equal('The trail was deleted.');
+                                    done();
+                                });
                        });
                     });       
                 });     

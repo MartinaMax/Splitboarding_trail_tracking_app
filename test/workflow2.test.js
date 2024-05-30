@@ -7,7 +7,7 @@ const server = require('../server');
 chai.use(chaiHttp);
 
 describe('User workflow tests', () => {
-    it('invalid user login a user test ', (done) => {
+    it('should register a user and testing invalid password while user login', (done) => {
 
     // 1. Register a new user
     let user = {
@@ -15,7 +15,7 @@ describe('User workflow tests', () => {
         lastName: "Murphy",
         username: "cockroach",
         email: "cockroach@murphy.com",
-        password: "I_love_Murphy"
+        password: "IamMurphy"
     }
     chai.request(server)
         .post('/api/user/register')
@@ -26,18 +26,17 @@ describe('User workflow tests', () => {
             expect(res.body).to.be.a('object');
             expect(res.body.error).to.be.equal(null);
             
-            //2. Login this user
+            //2. Login this user (invalid password)
             chai.request(server)
                 .post('/api/user/login')
                 .send({
                     "email": "cockroach@murphy.com",
-                    "password": "LoveMurphy"
+                    "password": "MurphyMurphy"
                 })
                 .end((err, res) => {
 
                     expect(res.status).to.be.equal(400);
                     expect(res.body.error).to.be.equal('Wrong password. Try again.');
-
                     done();
                 })
             })
