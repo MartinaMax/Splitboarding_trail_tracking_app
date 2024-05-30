@@ -6,12 +6,10 @@ const {tokenVerification} = require("../validation");
 
 // GET - Fetch all trails based on who it was created by
 router.get("/:createdBy", tokenVerification,  (req, res) => {
-
     
-    trail.find()
+    trail.find({createdBy: req.params.createdBy})
     .then(data => {res.send(data);})
     .catch(err => {res.status(500).send(JSON.stringify(err));})
-
 });
 
 
@@ -23,8 +21,6 @@ router.post("/", tokenVerification, (req, res) => {
     trail.insertMany(data)
     .then(data => {res.send(data);})
     .catch(err => {res.status(500).send(JSON.stringify(err));})
-
-    
 });
 
 
@@ -32,7 +28,6 @@ router.post("/", tokenVerification, (req, res) => {
 router.put("/:id",  tokenVerification, (req, res) => {
    
     const id = req.params.id;
-
 
     trail.findByIdAndUpdate(id, req.body)
     .then(data => {
@@ -42,7 +37,6 @@ router.put("/:id",  tokenVerification, (req, res) => {
         else{
             res.send({message: "The trail was modified. Now it is a better version."})
         }
-
     })
     .catch(err => {res.status(500).send(JSON.stringify(err)); })
 });
@@ -53,7 +47,6 @@ router.delete("/:id",  tokenVerification, (req, res) => {
    
     const id = req.params.id;
 
-
     trail.findByIdAndDelete(id)
     .then(data => {
         if(!data){
@@ -62,7 +55,6 @@ router.delete("/:id",  tokenVerification, (req, res) => {
         else{
             res.send({message: "The trail was deleted."})
         }
-
     })
     .catch(err => {res.status(500).send(JSON.stringify(err)); })
 });
