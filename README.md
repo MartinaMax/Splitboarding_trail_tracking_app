@@ -24,6 +24,3 @@
 ![Mocha](https://img.shields.io/badge/-mocha-%238D6748?style=for-the-badge&logo=mocha&logoColor=white)
 ![Chai](https://img.shields.io/badge/chai-F7EED9?style=for-the-badge&logo=chai&logoColor=A40802)
 ![Swagger](https://img.shields.io/badge/swagger-FFFFF?style=for-the-badge&logo=swagger&logoColor=white)
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
